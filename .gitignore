@@ -1,0 +1,5 @@
+.gradle
+.idea
+OpenVideoCall_Android.iml
+local.properties
+build
