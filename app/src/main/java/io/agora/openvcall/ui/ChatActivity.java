@@ -48,8 +48,10 @@ import io.agora.rtc.video.VideoCanvas;
 
 public class ChatActivity extends BaseActivity implements AGEventHandler {
 
+    //日志
     private final static Logger log = LoggerFactory.getLogger(ChatActivity.class);
 
+    //视频视图容器
     private GridVideoViewContainer mGridVideoViewContainer;
 
     private RelativeLayout mSmallVideoViewDock;

@@ -45,8 +45,8 @@ public class MainActivity extends BaseActivity {
         });
 
         Spinner encryptionSpinner = (Spinner) findViewById(R.id.encryption_mode);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.encryption_mode_values, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.encryption_mode_values,
+                android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         encryptionSpinner.setAdapter(adapter);
 
@@ -92,11 +92,11 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                forwardToSettings();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        case R.id.action_settings:
+            forwardToSettings();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -106,6 +106,7 @@ public class MainActivity extends BaseActivity {
 
     public void forwardToRoom() {
         EditText v_channel = (EditText) findViewById(R.id.channel_name);
+        // 获取到channel name(渠道名称)
         String channel = v_channel.getText().toString();
         vSettings().mChannelName = channel;
 
@@ -116,7 +117,8 @@ public class MainActivity extends BaseActivity {
         Intent i = new Intent(MainActivity.this, ChatActivity.class);
         i.putExtra(ConstantApp.ACTION_KEY_CHANNEL_NAME, channel);
         i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_KEY, encryption);
-        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_MODE, getResources().getStringArray(R.array.encryption_mode_values)[vSettings().mEncryptionModeIndex]);
+        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_MODE,
+                getResources().getStringArray(R.array.encryption_mode_values)[vSettings().mEncryptionModeIndex]);
 
         startActivity(i);
     }
